@@ -1,69 +1,40 @@
-<!DOCTYPE html>
+
 <html>
-    <head>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-        <title> Network Calculator </title>
-    </head>
-        <body>
-            <md-content class="md-padding" layout-xs="column" layout="row">
-
-                <md-fab-toolbar md-open="demo.isOpen" count="demo.count" md-direction="{{demo.selectedDirection}}">
-
-                    <md-fab-trigger class="align-with-text">
-                        <md-button aria-label="menu" class="md-fab md-primary">
-                            <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
-                        </md-button>
-                    </md-fab-trigger>
-
-                    <md-toolbar>
-                        <md-fab-actions class="md-toolbar-tools">
-                            <md-button aria-label="comment" class="md-icon-button">
-                                  <md-icon md-svg-src="img/icons/ic_comment_24px.svg"></md-icon>
-                            </md-button>
-                            <md-button aria-label="label" class="md-icon-button">
-                                <md-icon md-svg-src="img/icons/ic_label_24px.svg"></md-icon>
-                            </md-button>
-                            <md-button aria-label="photo" class="md-icon-button">
-                                <md-icon md-svg-src="img/icons/ic_photo_24px.svg"></md-icon>
-                            </md-button>
-                        </md-fab-actions>
-                    </md-toolbar>
-
-                </md-fab-toolbar>
-
-            </md-content>
-        </body>
-</html>
-
-<html lang="en" >
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
     <title>Network Calculator</title>
+    <link rel="stylesheet" href="home.css">
+    <script src = "/Users/rawn_sups/Documents/programming/python/network/controller/main-controller.js"></script>
 </head>
-<body ng-app="BlankApp" ng-cloak>
-  <!--
-    Your HTML content here
-  -->
 
-  <!-- Angular Material requires Angular.js Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-messages.min.js"></script>
+<body>
 
-  <!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+<section id = "toolbar">
 
-  <!-- Your application bootstrap  -->
-  <script type="text/javascript">
-    /**
-     * You must include the dependency on 'ngMaterial'
-     */
-    angular.module('BlankApp', ['ngMaterial']);
-  </script>
+    <h3>Toolbar</h3>
+
+    <section id = "toolbar-nodes">
+        <h4>Nodes</h4>
+        <ul>
+            <li><button id="create-node" onclick="createNode">Create Node</button></li>
+            <li><button id="editNodesButton">Edit Nodes</button></li>
+        </ul>
+    </section>
+
+    <section id = "toolbar-arcs">
+        <h4>Arcs</h4>
+        <ul>
+            <li><button>Create Arc</button></li>
+            <li><button>Edit Arc</button></li>
+            <li><button>Delete Arc</button></li>
+        </ul>
+    </section>
+
+</section>
+
+<section id = "settings">
+    <h3>Settings</h3>
+    <input type="checkbox" name="arcs" value="directed"> Directed Arcs<br>
+</section>
 
 </body>
 </html>
