@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Calculator</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+    <section id="message-box">
+    </section>
+
+
+    <canvas id="network-canvas">
+    </canvas>
+
+
+
+    <section id = "toolbar">
+
+        <h3>Toolbar</h3>
+
+        <section id = "toolbar-nodes">
+            <h4>Nodes</h4>
+            <ul>
+                <li><button id="create-node" onclick ="createNode()">Create Node</button></li>
+                <li><button id="edit-nodes" onclick="editNodes()">Edit Nodes</button></li>
+            </ul>
+        </section>
+
+        <section id = "toolbar-arcs">
+            <h4>Arcs</h4>
+            <ul>
+                <li><button id="create-arc" onclick="createArc()">Create Arc</button></li>
+                <li><button id="delete-arc" onclick="deleteArc()">Edit Arc</button></li>
+            </ul>
+        </section>
+
+    </section>
+
+    <section id = "settings">
+        <h3>Settings</h3>
+        <input title="directed" type="checkbox" name="arcs" value="directed"> Directed Arcs<br>
+    </section>
+
+</body>
+<script type="text/javascript" src="/Users/rawn_sups/Documents/programming/javascript/network/controller/main-controller.js">
+</script>
+</html>
