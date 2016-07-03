@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Network Calculator</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="style/home.css">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
     </section>
 
 
-    <canvas id="network-canvas">
+    <canvas id="network-canvas" onclick ="newNodes()">
     </canvas>
 
 
@@ -23,16 +23,18 @@
         <section id = "toolbar-nodes">
             <h4>Nodes</h4>
             <ul>
-                <li><button id="create-node" onclick ="createNode()">Create Node</button></li>
-                <li><button id="edit-nodes" onclick="editNodes()">Edit Nodes</button></li>
+                <li>
+                    <button id="create-node" onclick="addNode()">Add Nodes</button>
+                    <button id="clear-screen" onclick="eraseNetwork()()">Erase Network</button>
+                </li>
             </ul>
         </section>
 
         <section id = "toolbar-arcs">
             <h4>Arcs</h4>
             <ul>
-                <li><button id="create-arc" onclick="createArc()">Create Arc</button></li>
-                <li><button id="delete-arc" onclick="deleteArc()">Edit Arc</button></li>
+                <li><button id="create-arc" onclick="createArc()">Add Arcs</button></li>
+                <li><button id="delete-arc" onclick="editArc()">Edit Arcs</button></li>
             </ul>
         </section>
 
@@ -44,6 +46,6 @@
     </section>
 
 </body>
-<script type="text/javascript" src="/Users/rawn_sups/Documents/programming/javascript/network/controller/main-controller.js">
+<script type = "text/javascript" src="../controller/main-controller.js">
 </script>
 </html>
