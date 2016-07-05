@@ -1,46 +1,45 @@
-//Canvas
-var canvas = document.getElementById('network-canvas');
-var ctx = canvas.getContext("2d");
 
 
+// Network Model
+var networkModel;
 
-//Create Node
-function createNode () {
-	//message("Click to create a node!");
-	console.log("meep");
-	canvas.onclick = newNode()
-
-	//When you click somewhere, the mouse coordinates are read, and they become the center of a node
+// Create Network (on load)
+function createNetwork() {
+    networkModel = new Network();
 };
 
-function newNode(){
-	console.log("Node added!");
-	//canvas.onclick = null;
+// Add Node to network-svg
+function addNode() {
+    var node = document.createElement("div");
+    node.id = networkModel.numNodes++;
+    node = new Node(node);
+    networkModel.addNode(node);
+    
+    document.getElementById("network-svg").appendChild(node);
 }
 
-//Edit Nodes
-var editNodes = function (event) {
-	console.log("Editing nodes!");
-};
+function deleteNode(id) {
+    networkModel.numNodes--;
+    var nodes = document.getElementsByTagName('div')
+    for (var node in nodes) {
+        if (node.id == id) {
+            document.getElementById("network-svg").removeChild(node);
+        }
+    }
+    
+}
 
-//Create Arc
-var createArc = function (event) {
-	console.log("Arc created!");
-};
 
-//Delete Arc
-var deleteArc = function (event){
-	console.log("Arc deleted!");
-};
 
 //Message Box Functions
 function message(string){
-	document.getElementById("message-box").innerHTML = string;
-}
+    document.getElementById("message-box").innerHTML = string;
+};
 
-function clrMessage(){
-	document.getElementById("message-box").innerHTML = "";
-}
+function clrMessage() {
+    document.getElementById("message-box").innerHTML = "";
+};
+
 
 
 

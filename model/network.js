@@ -4,7 +4,11 @@
 
 function Network() {
 
-    this.nodes = [];
+    numNodes = 0;
+    nodes = [];
+    function addNode(node) {
+        nodes.push(node);
+    }
     
 
 }
