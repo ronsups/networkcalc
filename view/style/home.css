@@ -14,11 +14,13 @@ h3, h4 {
 	text-align: center;
 }
 
+
 ul {
 	list-style-type: none;
 	text-align: center;
 	padding-left:0px;
 }
+
 
 ul li {
 	display: inline;

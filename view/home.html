@@ -3,26 +3,25 @@
     <head>
         <title>Network Calculator</title>
         <link rel="stylesheet" href="style/home.css">
+        <script type="text/javascript" src="../lib/bundle.js"></script>
+	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     </head>
 
-    <body onload="createNetwork()">
-
-
+    <body>
         <nav id="menu">
 	        <ul>
 		        <h3>Toolbar</h3>
-		        <li> <button id = "addButton" onclick ="addNode()"> add node </button> </li>
-		        <li> <button id = "connectButton" onclick=""> connect two nodes </button> </li>
-		        <li> <button id = "saveButton" onclick=""> save network </button></li>
-		        <li> <input title="directed" type="checkbox" name="arcs" value="directed"> Directed Arcs</li>
+		        <li> <button id="addNodeButton" onclick="addNode()"> add node </button> </li>
+		        <li> <button id="addArcButton" onclick="addArc()"> add arc </button> </li>
+		        <li> <button id="bulkAddNodesButton" onclick="bulkAddNodes()"> add multiple nodes </button></li>
+		        <li> <button id="bulkAddArcsButton" onclick="bulkAddArcs()"> add multiple arcs </button></li>
+		        <li> <button id="importNetworkButton" onclick="importNetwork()"> import existing network </button></li>
+		        <li> <button id="saveNetworkButton" onclick="saveNetwork()"> save network </button></li>
 	        </ul>
         </nav>
         <section id="network-svg" ondrop="" ondragover="">
-
+			
         </section>
 
     </body>
-    <script type = "text/javascript" src="../controller/main-controller.js"></script>
-    <script type = "text/javascript" src="../model/node.js"></script>
-    <script type = "text/javascript" src="../model/network.js"></script>
 </html>
