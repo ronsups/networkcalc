@@ -2,26 +2,23 @@
 <html>
     <head>
         <title>Network Calculator</title>
-        <link rel="stylesheet" href="style/home.css">
-        <script type="text/javascript" src="../lib/bundle.js"></script>
-	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="home.css">
+        <script type="text/javascript" src="main-controller.js"></script>
     </head>
 
     <body>
         <nav id="menu">
 	        <ul>
 		        <h3>Toolbar</h3>
-		        <li> <button id="addNodeButton" onclick="addNode()"> add node </button> </li>
-		        <li> <button id="addArcButton" onclick="addArc()"> add arc </button> </li>
-		        <li> <button id="bulkAddNodesButton" onclick="bulkAddNodes()"> add multiple nodes </button></li>
-		        <li> <button id="bulkAddArcsButton" onclick="bulkAddArcs()"> add multiple arcs </button></li>
-		        <li> <button id="importNetworkButton" onclick="importNetwork()"> import existing network </button></li>
-		        <li> <button id="saveNetworkButton" onclick="saveNetwork()"> save network </button></li>
-	        </ul>
+		        <li> <button id="addNodeButton" onclick="addNodeEventListener()"> add nodes </button> </li>
+		        <li> <button id="clearScreenButton" onclick="clearScreen()"> clear screen </button> </li>
+            </ul>
         </nav>
-        <section id="network-svg" ondrop="" ondragover="">
-			
-        </section>
+        <div id='network-events'>
+            <svg id="network-svg" height="80%" width="100%" capture="false">
+                <text id="message-box" x="50%" y="50%" fill="black"></text>
+            </svg>
+        </div>
 
     </body>
 </html>

@@ -26,10 +26,33 @@ ul li {
 	display: inline;
 }
 
-#message-box {
+#network-svg {
+	display: block;
 	position: fixed;
+	width: 100%;
+	height: 80%;
+	z-axis: 1;
+
+	border-style: solid;
+	background-color: white;
+
+	color: black;
+	font-size: 100%;
 }
 
-#node {
+#menu {
+	display: block;
+	position: fixed;
+	border-style: solid;
+	width: 100%;
+	height: 20%;
+	bottom: 0;
+	z-axis: 0;
+	background-color: white;
+}
 
+ellipse {
+	fill: yellow;
+	stroke: purple;
+	stroke-width: 2;
 }
