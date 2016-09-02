@@ -1,38 +1,46 @@
+'use strict';
+
 // Model
 var numNodes = 0
 var numArcs = 0
 
 //Node Class
-function Node(mouse_x, mouse_y) {
+var node = function (event) {
 
-
-
-    var node = document.createElementNS("http://www.w3.org/2000/svg","ellipse")
-    node.setAttribute("cx", String(mouse_x))
-    node.setAttribute("cy", String(mouse_y))
-    node.setAttribute("rx", "50px")
-    node.setAttribute("ry", "50px")
-    node.setAttribute("class","node")
-    node.setAttribute("onclick","deleteNode(event)")
-    node.setAttribute("nodeID", String(++numNodes))
-
-    return node
-
+    // Fields
+    node.nodeID = numNodes + 1
+    node.x = event.clientX
+    node.y = event.clientY
+    node.view = function () {
+        console.log("viewed")
+        var nodeView = document.createElementNS("http://www.w3.org/2000/svg","ellipse")
+        nodeView.setAttribute("cx", String(node.x))
+        nodeView.setAttribute("cy", String(node.y))
+        nodeView.setAttribute("rx", "50px")
+        nodeView.setAttribute("ry", "50px")
+        nodeView.setAttribute("class","node")
+        nodeView.setAttribute("onclick","deleteNode(event)")
+        nodeView.setAttribute("nodeID", String(node.nodeID))
+        var networkView = document.getElementById("network-svg")
+        networkView.appendChild(nodeView)
+    }
+    node.view()
 }
 
-
-// Add Node Button
+// Add Node Button - click on network-svg to add nodes
 function addNodeEventListener() {
     message("Click on the screen to add a node!")
 
     var networkEvents = document.getElementById("network-events")
-    networkEvents.setAttribute("onclick","addNode(event)")
+    networkEvents.setAttribute("onclick","new node(event)")
 
     var addNodeButton = document.getElementById("addNodeButton")
     addNodeButton.innerHTML = "stop adding nodes"
     addNodeButton.setAttribute("onclick","removeNodeEventListener()")
 
 }
+
+// SVG element (network "canvas") - must be on 
 
 // Cancel Button
 function removeNodeEventListener() {
@@ -47,48 +55,40 @@ function removeNodeEventListener() {
 }
 
 
-function addNode(event) {
-
-    clrMessage()
-
-    var newNode = new Node(event.clientX, event.clientY)
-    var networkView = document.getElementById("network-svg")
-    networkView.appendChild(newNode)
-    console.log("Added Node at: " + String(event.clientX) + ", " + String(event.clientY))
-
-}
-
 function deleteNode(event) {
 
-    var target = event.target
-    var nodeID = target.getAttribute("nodeID")
-    var networkView = document.getElementById("network-svg")
-    var nodeList = networkView.children
-    console.log("nodeList: ")
-    console.log(nodeList)
-
-
-    for (node in nodeList) {
-        console.log("node: ")
-        console.log(node)
-        if () {
-        }
-    }
-
+    //console.log(event.bubbles)
     event.stopPropagation()
 
+    var target = event.target || window.event.target
+    var nodeID = target.getAttribute("nodeID")
+    var networkView = document.getElementById("network-svg")
+    var nodes = document.querySelectorAll(".node")
+    console.log(nodes)
 
 
+    for (var node in nodes) {
+
+        node = nodes[node]
+        try {
+            var id = node.getAttribute("nodeID")
+            if (id == nodeID) {
+                console.log("delete node with ID " + String(nodeID))
+                networkView.removeChild(target)
+            }
+        } catch (Error) {
+            //console.log(node)
+        }
+    }
 
 }
 
 
 
 function clearScreen() {
-
     var networkView = document.getElementById("network-svg")
-    var nodeList = networkView.querySelectorAll(".node")
-    nodeList.forEach(function(node){networkView.removeChild(node)})
+    var nodes = networkView.querySelectorAll(".node")
+    nodes.forEach(function(node){networkView.removeChild(node)})
 }
 
 
@@ -101,4 +101,3 @@ function message(string){
 function clrMessage() {
     document.getElementById("message-box").innerHTML = ""
 }
-
